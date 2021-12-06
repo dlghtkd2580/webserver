@@ -1,0 +1,12 @@
+{%if message == 'form_success'%}
+  <script type="text/javascript">
+    alert('해당 업체의 심사 신청이 성공적으로 등록되었습니다.\n승인시 각 업체별 필요서류가 상이할 수 있습니다.\n감사합니다.')
+    window.history.back();
+  </script>
+{%endif%}
+{%if message == 'form_fail'%}
+  <script type="text/javascript">
+    alert('심사 신청이 등록되지 않았습니다.\n(Error)')
+    window.history.back();
+  </script>
+{%endif%}

@@ -1,0 +1,13 @@
+{%extends 'web/list_base.html'%}
+{%load static%}
+{%block content%}
+<div class="file_text">
+  <h1>파일명 : {{file_name}}</h1>
+  <br><br>
+  <p>
+    {%for line in text%}
+      {{line|linebreaks}}
+    {%endfor%}
+  </p>
+</div>
+{%endblock%}

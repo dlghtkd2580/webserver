@@ -1,0 +1,18 @@
+
+
+.file_text{
+  background: white;
+  padding: 8px;
+}
+
+.file_txt p{
+  font-size: 12px;
+  color:black;
+}
+
+.file_text h1{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color:black;
+}
