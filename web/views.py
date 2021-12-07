@@ -7,7 +7,7 @@ from .models import *
 import datetime
 import os
 
-path = "/Users/"
+path = "/root/"
 
 
 def main(request):

@@ -37,16 +37,16 @@ function validate_form() {
        if(!check(re3,age,"나이를 제대로 입력해주세요.")) {
            return false;
        }
-       if(!check(re4,pay,"월수입을 제대로 입력해주세요.\n숫자만 입력가능합니다. (단위: 만원)")) {
+       if(!check(re4,pay,"월수입을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원)")) {
            return false;
        }
-       if(!check(re5,pay_day,"급여일을 제대로 입력해주세요.\n1~31 까지의 숫자만 입력가능합니다.")) {
+       if(!check(re5,pay_day,"급여일을 제대로 입력해주세요. 1~31 까지의 숫자만 입력가능합니다.")) {
            return false;
        }
-       if(!check(re6,credit_grade,"신용등급을 제대로 입력해주세요.\n1~10 까지의 숫자만 입력가능합니다.")) {
+       if(!check(re6,credit_grade,"신용등급을 제대로 입력해주세요. 1~10 까지의 숫자만 입력가능합니다.")) {
            return false;
        }
-       if(!check(re7,credit_amount,"대출신청금액을 제대로 입력해주세요.\n숫자만 입력가능합니다. (단위: 만원)")) {
+       if(!check(re7,credit_amount,"대출신청금액을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원)")) {
            return false;
        }
 
