@@ -6,6 +6,7 @@ from datetime import datetime
 from .models import *
 import datetime
 import os
+import subprocess
 
 path = "/root/"
 
@@ -162,7 +163,8 @@ def form_delete(request, form_pk):
 			user = User.objects.get(pk=user_pk)
 			form = Form.objects.get(pk=form_pk)
 			form.delete()
-			os.system("delete")
+			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
+			sp.communicate()
 			return HttpResponseRedirect(reverse('web:list'), {'user':user})
 
 		return HttpResponseRedirect(reverse('web:login'))
@@ -180,7 +182,8 @@ def form_delete_all(request):
 		if user_pk:
 			user = User.objects.get(pk=user_pk)
 			Form.objects.all().delete()
-			os.system("delete")
+			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
+			sp.communicate()
 			HttpResponseRedirect(reverse('web:list'), {'user':user})
 
 		return HttpResponseRedirect(reverse('web:login'))
@@ -200,7 +203,8 @@ def file_delete(request):
 			if request.method == 'POST':
 				file = request.POST.get('file_name', None)
 				os.system("rm -rf "+file)
-				os.system("delete")
+				sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
+				sp.communicate()
 
 			return HttpResponseRedirect(reverse('web:list'), {'user':user})
 
@@ -218,8 +222,10 @@ def file_delete_all(request):
 
 		if user_pk:
 			user = User.objects.get(pk=user_pk)
-			os.system("file_delete")
-			os.system("delete")
+			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'file_delete'])
+			sp.communicate()
+			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
+			sp.communicate()
 
 			return HttpResponseRedirect(reverse('web:list'), {'user':user})
 
@@ -244,6 +250,30 @@ def file_view(request):
 				file.close()
 
 			return render(request, 'web/file_view.html', {'user':user,'text':text,'file_name':file_name})
+
+		return HttpResponseRedirect(reverse('web:login'))
+
+	except Exception as err:
+		HttpResponse(status=404)
+
+def file_edit(request):
+
+	try:
+
+		user_pk = request.session.get('user')
+		user = None
+
+		if user_pk:
+			user = User.objects.get(pk=user_pk)
+			if request.method == 'POST':
+				file = request.POST.get('file_name', None)
+				new_name = request.POST.get('file_new_name', None)
+				new_file = path+new_name+".txt"
+				os.system("mv "+file+" "+new_file)
+				sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
+				sp.communicate()
+
+			return HttpResponseRedirect(reverse('web:list'), {'user':user})
 
 		return HttpResponseRedirect(reverse('web:login'))
 

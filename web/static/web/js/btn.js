@@ -44,6 +44,15 @@ $(document).ready(function(){
     $(this).css('color','white');
     $(this).css('background','#1e2d3b');
   });
+  $('.file_edit_btn > button').hover(function(){
+    $(this).css('transition','.1s ease');
+    $(this).css('color','white');
+    $(this).css('background','red');
+  },function(){
+    $(this).css('transition','.1s ease');
+    $(this).css('color','white');
+    $(this).css('background','#1e2d3b');
+  });
 });
 
 function delete_all_check(message) {
