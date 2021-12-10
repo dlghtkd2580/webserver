@@ -33,3 +33,14 @@
   font-weight: 300;
   padding: 10px;
 }
+
+@media all and (max-width:1280px) {
+
+  .form_view_table{
+    margin: 0 auto;
+    margin-top: 16px;
+    width: 300px;
+    font-size: 14px;
+  }
+
+}
