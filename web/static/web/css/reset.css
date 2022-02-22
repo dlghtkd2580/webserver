@@ -46,7 +46,7 @@ video{
    border-collapse: collapse;
    border-spacing: 0;
  }
-
+/*
  input:not(.radio){
    margin:0;
    padding: 0;
@@ -66,3 +66,4 @@ video{
  input::-webkit-input-placeholder:not(.radio){
    color:#e65d5d;
  }
+*/
