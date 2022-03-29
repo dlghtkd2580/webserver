@@ -221,6 +221,7 @@ def file_delete(request):
 			user = User.objects.get(pk=user_pk)
 			if request.method == 'POST':
 				file = request.POST.get('file_name', None)
+				os.system("cp "+file+" /backup")
 				os.system("rm -rf "+file)
 				sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
 				sp.communicate()
@@ -241,6 +242,8 @@ def file_delete_all(request):
 
 		if user_pk:
 			user = User.objects.get(pk=user_pk)
+			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'file_backup'])
+			sp.communicate()
 			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'file_delete'])
 			sp.communicate()
 			sp = subprocess.Popen(['/bin/bash', '-i', '-c', 'delete'])
