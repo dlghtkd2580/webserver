@@ -21,6 +21,7 @@ function validate_form() {
        var pay_day = document.getElementById("pay_day");
        var credit_grade = document.getElementById("credit_grade");
        var credit_amount = document.getElementById("credit_amount");
+       var holding_credit = document.getElementById("holding_credit");
 
        if(!check(re1,name,"신청자 이름을 제대로 입력해주세요.")) {
            return false;
@@ -47,6 +48,9 @@ function validate_form() {
            return false;
        }
        if(!check(re7,credit_amount,"대출신청금액을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원)")) {
+           return false;
+       }
+       if(!check(re7,holding_credit,"기대출을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원, 없으면 0 입력)")) {
            return false;
        }
 
