@@ -47,10 +47,10 @@ function validate_form() {
        if(!check(re6,credit_grade,"신용등급을 제대로 입력해주세요. 1~10 까지의 숫자만 입력가능합니다.")) {
            return false;
        }
-       if(!check(re7,credit_amount,"대출신청금액을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원)")) {
+       if(!check(re7,holding_credit,"기대출을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원, 없으면 0 입력)")) {
            return false;
        }
-       if(!check(re7,holding_credit,"기대출을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원, 없으면 0 입력)")) {
+       if(!check(re7,credit_amount,"대출신청금액을 제대로 입력해주세요. 숫자만 입력가능합니다. (단위: 만원)")) {
            return false;
        }
 
